@@ -5,9 +5,11 @@ if (!$_SESSION['usuarioLogeado']) {
     header("Location:login.php");
 }
 
+include("conexion.php");
+
 function obtenerTodasLasPropiedades()
 {
-    include("conexion.php");
+    global $conn;
     $query = "SELECT * FROM propiedades  ORDER BY fecha_alta DESC";
     $result = mysqli_query($conn, $query);
     return $result;
@@ -15,19 +17,36 @@ function obtenerTodasLasPropiedades()
 
 function obtenerTipo($id_tipo)
 {
-    include("conexion.php");
+    global $conn;
     $query = "SELECT * FROM tipos WHERE id='$id_tipo'";
-
-    //Ejecutamos la consulta
     $resultado_tipo = mysqli_query($conn, $query);
     $row = mysqli_fetch_assoc($resultado_tipo);
     return $row['nombre_tipo'];
 }
 
-$result = obtenerTodasLasPropiedades();
+// Verificar si se ha enviado el formulario de búsqueda
+if (isset($_GET['buscar'])) {
+    // Obtener el término de búsqueda ingresado por el usuario
+    $busqueda = $_GET['busqueda'];
 
+    // Escapar caracteres especiales para prevenir SQL Injection
+    $busqueda = mysqli_real_escape_string($conn, $busqueda);
+
+    // Construir la consulta SQL dinámicamente para buscar en varios campos
+    $query = "SELECT * FROM propiedades 
+              WHERE id LIKE '%$busqueda%' 
+              OR titulo LIKE '%$busqueda%' 
+              OR tipo IN (SELECT id FROM tipos WHERE nombre_tipo LIKE '%$busqueda%') 
+              OR estado LIKE '%$busqueda%' 
+              OR ubicacion LIKE '%$busqueda%' 
+              OR fecha_alta LIKE '%$busqueda%'
+              ORDER BY fecha_alta DESC";
+    $result = mysqli_query($conn, $query);
+} else {
+    // Si no se ha enviado el formulario de búsqueda, obtener todas las propiedades por defecto
+    $result = obtenerTodasLasPropiedades();
+}
 ?>
-
 
 <!DOCTYPE html>
 <html lang="es">
@@ -52,9 +71,13 @@ $result = obtenerTodasLasPropiedades();
             <div id="listado-propiedades">
                 <h2>Listado de Propiedades</h2>
                 <hr>
+                <div class="contenedor-busqueda">
+                    <form id="form-busqueda" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get">
+                        <input type="text" id="busqueda" name="busqueda" placeholder="Buscar...">
+                        <button type="submit" name="buscar"><i class="fas fa-search"></i> Buscar</button>
+                    </form>
+                </div>
                 <div class="contenedor-tabla">
-
-
                     <table>
                         <tr>
                             <th>#ID</th>
@@ -63,17 +86,16 @@ $result = obtenerTodasLasPropiedades();
                             <th>Estado</th>
                             <th>Ubicación</th>
                             <th>Fecha de Publicación</th>
-                            <th> Acciones </th>
+                            <th>Acciones</th>
                         </tr>
-
                         <?php while ($propiedad = mysqli_fetch_assoc($result)) : ?>
                             <tr>
-                                <td> <?php echo $propiedad['id'] ?></td>
-                                <td> <?php echo $propiedad['titulo'] ?></td>
-                                <td> <?php echo obtenerTipo($propiedad['tipo']) ?></td>
-                                <td> <?php echo $propiedad['estado'] ?></td>
-                                <td> <?php echo $propiedad['ubicacion'] ?></td>
-                                <td> <?php echo $propiedad['fecha_alta'] ?></td>
+                                <td><?php echo $propiedad['id'] ?></td>
+                                <td><?php echo $propiedad['titulo'] ?></td>
+                                <td><?php echo obtenerTipo($propiedad['tipo']) ?></td>
+                                <td><?php echo $propiedad['estado'] ?></td>
+                                <td><?php echo $propiedad['ubicacion'] ?></td>
+                                <td><?php echo $propiedad['fecha_alta'] ?></td>
                                 <td>
                                     <form action="ver-detalle-propiedad.php" method="get" class="form-acciones">
                                         <input type="hidden" name="id" value="<?php echo $propiedad['id'] ?>">
@@ -83,33 +105,23 @@ $result = obtenerTodasLasPropiedades();
                                         <input type="hidden" name="id" value="<?php echo $propiedad['id'] ?>">
                                         <input type="submit" value="Actualizar" name="actualizar">
                                     </form>
-                                    <a href="#" id="<?php echo $propiedad['id'] ?>" onclick="abrirModal(<?php echo $propiedad['id'] ?>)" class="btn-eliminar">
-                                        Eliminar
-                                    </a>
+                                    <a href="#" id="<?php echo $propiedad['id'] ?>" onclick="abrirModal(<?php echo $propiedad['id'] ?>)" class="btn-eliminar">Eliminar</a>
                                 </td>
                             </tr>
                         <?php endwhile ?>
                     </table>
                 </div>
-
-                <!-- The Modal para la eliminación de una propiedad -->
-                <div id="myModal" class="modal">
-
-                    <!-- Modal content -->
-                    <div class="modal-content">
-                        <span class="close">&times;</span>
-                        <p>¿Esta seguro que desea eliminar la propiedad?</p>
-                        <button onclick="eliminarPropiedad()">Si</button>
+                <?php if (isset($_GET['buscar'])) : ?>
+                    <div class="contenedor-busqueda">
+                    <button class="boton-atras" onclick="window.history.back();">Atrás</button>
                     </div>
-                </div>
-
+                <?php endif; ?>
             </div>
         </div>
     </div>
     <script>
         $('#link-listado-propiedades').addClass('pagina-activa');
     </script>
-
     <script src="script.js"></script>
 </body>
 

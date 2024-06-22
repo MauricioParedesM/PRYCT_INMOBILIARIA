@@ -55,6 +55,7 @@ $result_tipos = obtenerTodosLosTipos();
                         <span>
                             <input type="radio" value="Venta" name="estado"> Venta
                         </span>
+                        
                     </div>
 
                     <input type="submit" value="Buscar" name="buscar">

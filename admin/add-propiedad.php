@@ -53,7 +53,7 @@ if (isset($_POST['agregar'])) {
 
     //armamos el query para insertar en la tabla propiedades
     $query = "INSERT INTO propiedades (id, fecha_alta, titulo, descripcion, tipo, estado, ubicacion, dormitorios, banios, pisos, garage, dimensiones, precio, moneda,  url_foto_principal, pais, ciudad, propietario, telefono_propietario)
-    VALUES (NULL,CURRENT_TIMESTAMP, '$titulo', '$descripcion','$tipo','$estado','$ubicacion','$dormitorios','$banios','$pisos','$garage','$dimensiones','$precio', '$moneda', '', '$pais','$ciudad','$propietario','$telefono_propietario')";
+    VALUES (NULL,CURRENT_TIMESTAMP, '$titulo', '$descripcion','$tipo','$estado','$ubicacion','$habitaciones','$banios','$pisos','$garage','$dimensiones','$precio', '$moneda', '', '$pais','$ciudad','$propietario','$telefono_propietario')";
 
     //insertamos en la tabla propiedades
     if (mysqli_query($conn, $query)) { //Se insertó correctamente
@@ -135,6 +135,7 @@ if (isset($_POST['agregar'])) {
                         <div class="box">
                             <label for="tipo">Seleccione tipo de propiedad</label>
                             <select name="tipo" id="" class="input-entrada-texto">
+                            <option value="" disabled selected>Seleccionar</option>
                                 <?php while ($row = mysqli_fetch_assoc($resultado_tipos)) : ?>
                                     <option value="<?php echo $row['id'] ?>">
                                         <?php echo $row['nombre_tipo'] ?>
@@ -146,9 +147,11 @@ if (isset($_POST['agregar'])) {
                         <div class="box">
                             <label for="estado">Elija estado de la propiedad</label>
                             <select name="estado" id="" class="input-entrada-texto">
+                            <option value="" disabled selected>Seleccionar</option>
                                 <option value="Venta">Venta</option>
                                 <option value="Alquiler">Alquiler</option>
-                                <option value="Alquiler">Anticretico</option>        
+                                <option value="Anticretico">Anticretico</option>
+        
                             </select>
                         </div>
 
@@ -160,8 +163,9 @@ if (isset($_POST['agregar'])) {
 
                     <div class="fila">
                     <div class="box">
-                        <label for="dormitorios">Dormitorios</label>
-                        <select name="dormitorios" class="input-entrada-texto">
+                        <label for="habitaciones">Dormitorios</label>
+                        <select name="habitaciones" class="input-entrada-texto">
+                        <option value="" disabled selected>Seleccionar</option>
                         <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -177,9 +181,17 @@ if (isset($_POST['agregar'])) {
 
 
                         <div class="box">
-                            <label for="baños">Baños</label>
-                            <input type="text" name="banios" class="input-entrada-texto">
-                        </div>
+                        <label for="banios">Baños</label>
+                        <select name="banios" class="input-entrada-texto">
+                            <option value="" disabled selected>Seleccionar</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+
 
                         <div class="box">
                             <label for="pisos">Pisos</label>
@@ -198,21 +210,50 @@ if (isset($_POST['agregar'])) {
 
                         <div class="box">
                             <label for="dimensiones">Dimensiones</label>
-                            <input type="text" name="dimensiones" class="input-entrada-texto">
+                            <input type="text" name="dimensiones" id="dimensiones" class="input-entrada-texto" value=" m²" onfocus="addSuffix()" onblur="checkSuffix()" oninput="validateInput()">
                         </div>
 
+                        <script>
+                        function addSuffix() {
+                            var input = document.getElementById('dimensiones');
+                            if (input.value.trim() === "m²") {
+                                input.value = "";
+                            }
+                        }
+
+                        function checkSuffix() {
+                            var input = document.getElementById('dimensiones');
+                            if (input.value.trim() === "") {
+                                input.value = " m²";
+                            } else if (!input.value.includes("m²")) {
+                                input.value = input.value.trim() + " m²";
+                            }
+                        }
+
+                        function validateInput() {
+                            var input = document.getElementById('dimensiones');
+                            input.value = input.value.replace(/[^\d]/g, '') + ' m²';
+                        }
+                        </script>
+
+
                         <div class="box">
-                            <label for="precio">Precio (Alquiler o Venta)</label>
+                            <label for="precio">Precio (Alquiler, Anticrético o Venta)</label>
                             <input type="text" name="precio" class="input-entrada-texto" required>
                         </div>
                     </div>
                     
                     <div class="fila">
-                        <div class="box">
-                            <label for="moneda">Moneda</label>
-                            <input type="text" name="moneda" class="input-entrada-texto" required value="$">
-                        </div>
+                    <div class="box">
+                        <label for="moneda">Tipo de moneda</label>
+                        <select id="moneda" name="moneda" class="input-entrada-texto" required>
+                            <option value="" disabled selected>Seleccionar</option>
+                            <option value="BOB">Bolivianos (BOB)</option>
+                            <option value="USD">Dólares (USD)</option>
+                        </select>
                     </div>
+                    </div>
+
 
 
                     <div>
@@ -253,6 +294,7 @@ if (isset($_POST['agregar'])) {
                         <div class="box">
                             <label for="ciudad">Seleccione una ciudad</label>
                             <select name="ciudad" id="ciudad" class="input-entrada-texto">
+                                
 
                             </select>
                         </div>

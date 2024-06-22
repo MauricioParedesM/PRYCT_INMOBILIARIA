@@ -41,7 +41,7 @@ $result = obtenerTodosLosTipos();
                 <div class="contenedor-tabla">
                     <table class="listados">
                         <tr>
-                            <th>#ID</th>
+                            <th>ID</th>
                             <th>Tipo</th>
                             <th>Acciones</th>
                         </tr>

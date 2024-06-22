@@ -138,7 +138,7 @@ function obtenerCiudad($id_ciudad)
                         </tr>
 
                         <tr>
-                            <td>Garage</td>
+                            <td>Garaje</td>
                             <td> <?php echo $propiedad['garage'] ?> </td>
                         </tr>
 
@@ -148,7 +148,7 @@ function obtenerCiudad($id_ciudad)
                         </tr>
 
                         <tr>
-                            <td>Precio (Alquiler o Venta)</td>
+                            <td>Precio (Alquiler, Anticrético o Venta)</td>
                             <td> <?php echo $propiedad['moneda'] ." ". $propiedad['precio'] ?> </td>
                         </tr>
                     </table>

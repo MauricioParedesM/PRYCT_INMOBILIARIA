@@ -255,7 +255,7 @@ header h2 {
 }
 
 .btn-accion {
-    background-color: #3d4ded;
+    background-color: #235f25;
     border: none;
     display: inline-block;
     padding: 10px 20px;
@@ -709,6 +709,53 @@ th {
 .listados input:hover {
     text-decoration: underline;
 }
+        .contenedor-busqueda {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .contenedor-busqueda input[type="text"] {
+            padding: 8px;
+            width: 300px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .contenedor-busqueda button {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .contenedor-busqueda button:hover {
+            background-color: #45a049;
+        }
+        .boton-atras {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .boton-atras:hover {
+            background-color: #0056b3;
+        }
+
+        .boton-atras::before {
+            content: "\2190"; 
+            margin-right: 8px; 
+        }
+
+
 
 
 /********************************************************************

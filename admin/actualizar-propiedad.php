@@ -227,6 +227,7 @@ if (isset($_POST['actualizar'])) {
                             <select name="tipo" id="" class="input-entrada-texto">
                                 <?php while ($row = mysqli_fetch_assoc($resultado_tipos)) : ?>
                                     <?php if ($row['id'] == $propiedad['tipo']) : ?>
+                                        
                                         <option value="<?php echo $row['id'] ?>" selected>
                                             <?php echo $row['nombre_tipo'] ?>
                                         </option>
@@ -263,6 +264,7 @@ if (isset($_POST['actualizar'])) {
                     <div class="box">
                         <label for="dormitorios">Dormitorios</label>
                         <select name="dormitorios" class="input-entrada-texto">
+                        <option value="" disabled selected>Seleccionar</option>
                         <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -293,6 +295,7 @@ if (isset($_POST['actualizar'])) {
                         <div class="box">
                             <label for="garage">Garage</label>
                             <select name="garage" id="" class="input-entrada-texto">
+                            <option value="" disabled selected>Seleccionar</option>
                                 <option value="No" <?php if ($propiedad['garage'] == "No") {
                                                         echo "selected";
                                                     } ?>>No</option>

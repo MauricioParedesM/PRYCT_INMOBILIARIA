@@ -122,8 +122,8 @@ function obtenerCiudad($id_ciudad)
                         </tr>
 
                         <tr>
-                            <td>Habitaciones</label></td>
-                            <td> <?php echo $propiedad['habitaciones'] ?> </td>
+                            <td>Dormitorios</label></td>
+                            <td> <?php echo $propiedad['dormitorios'] ?> </td>
                         </tr>
 
                         <tr>

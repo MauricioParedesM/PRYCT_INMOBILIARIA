@@ -52,8 +52,8 @@ if (isset($_POST['agregar'])) {
     $telefono_propietario = $_POST['telefono_propietario'];
 
     //armamos el query para insertar en la tabla propiedades
-    $query = "INSERT INTO propiedades (id, fecha_alta, titulo, descripcion, tipo, estado, ubicacion, habitaciones, banios, pisos, garage, dimensiones, precio, moneda,  url_foto_principal, pais, ciudad, propietario, telefono_propietario)
-    VALUES (NULL,CURRENT_TIMESTAMP, '$titulo', '$descripcion','$tipo','$estado','$ubicacion','$habitaciones','$banios','$pisos','$garage','$dimensiones','$precio', '$moneda', '', '$pais','$ciudad','$propietario','$telefono_propietario')";
+    $query = "INSERT INTO propiedades (id, fecha_alta, titulo, descripcion, tipo, estado, ubicacion, dormitorios, banios, pisos, garage, dimensiones, precio, moneda,  url_foto_principal, pais, ciudad, propietario, telefono_propietario)
+    VALUES (NULL,CURRENT_TIMESTAMP, '$titulo', '$descripcion','$tipo','$estado','$ubicacion','$dormitorios','$banios','$pisos','$garage','$dimensiones','$precio', '$moneda', '', '$pais','$ciudad','$propietario','$telefono_propietario')";
 
     //insertamos en la tabla propiedades
     if (mysqli_query($conn, $query)) { //Se insertó correctamente
@@ -148,6 +148,7 @@ if (isset($_POST['agregar'])) {
                             <select name="estado" id="" class="input-entrada-texto">
                                 <option value="Venta">Venta</option>
                                 <option value="Alquiler">Alquiler</option>
+                                <option value="Alquiler">Anticretico</option>        
                             </select>
                         </div>
 
@@ -158,10 +159,22 @@ if (isset($_POST['agregar'])) {
                     </div>
 
                     <div class="fila">
-                        <div class="box">
-                            <label for="habitaciones">Habitaciones</label>
-                            <input type="text" name="habitaciones" class="input-entrada-texto">
-                        </div>
+                    <div class="box">
+    <label for="dormitorios">Dormitorios</label>
+    <select name="dormitorios" class="input-entrada-texto">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+    </select>
+</div>
+
 
                         <div class="box">
                             <label for="baños">Baños</label>
@@ -176,7 +189,7 @@ if (isset($_POST['agregar'])) {
 
                     <div class="fila">
                         <div class="box">
-                            <label for="garage">Garage</label>
+                            <label for="garage">Garaje</label>
                             <select name="garage" id="" class="input-entrada-texto">
                                 <option value="No">No</option>
                                 <option value="Si">Si</option>

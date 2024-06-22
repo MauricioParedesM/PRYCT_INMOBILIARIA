@@ -216,7 +216,7 @@ if (isset($_POST['actualizar'])) {
                     </div>
 
                     <div class="fila-una-columna">
-                        <label for="descripcion">Descripción de la Propiedad</label>
+                        <label for="descripcion">Descripción de la Prop</label>
                         <textarea name="descripcion" id="" cols="30" rows="10" class="input-entrada-texto"><?php echo $propiedad['descripcion'] ?></textarea>
                     </div>
 

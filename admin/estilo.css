@@ -28,7 +28,7 @@
 
 #contenedor-login .presentacion .titulo {
     width: 50%;
-    background: linear-gradient(#3d4ded, #272f60);
+    background: linear-gradient(to right, #1c9016, #32e73b);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -71,7 +71,7 @@
     display: block;
     width: 100%;
     border: none;
-    background-color: #3d4ded;
+    background: linear-gradient(to right, #1c9016, #32e73b);
     padding: 7px;
     color: #fff;
     cursor: pointer;
@@ -98,7 +98,7 @@ header {
     height: 90px;
     padding: 20px 10px;
     color: #fff;
-    background-color: #3d4ded;
+    background: linear-gradient(to right, #1c9016, #32e73b);
     position: fixed;
     z-index: 99;
 }
@@ -165,7 +165,7 @@ header h2 {
 
 .pagina-activa,
 .pagina-activa a {
-    background:linear-gradient(to right, #3d4ded,#576de2);
+    background: linear-gradient(to right, #1c9016, #32e73b);
     color: #fff !important;
 }
 .pagina-activa i{

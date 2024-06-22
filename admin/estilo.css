@@ -166,6 +166,7 @@ header h2 {
 .pagina-activa,
 .pagina-activa a {
     background: linear-gradient(to right, #1c9016, #32e73b);
+    
     color: #fff !important;
 }
 .pagina-activa i{

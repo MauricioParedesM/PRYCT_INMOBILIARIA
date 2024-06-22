@@ -198,12 +198,16 @@ function obtenerCiudad($id_ciudad)
                             <td><?php echo $propiedad['telefono_propietario'] ?> </td>
                         </tr>
                     </table>
+                    <div class="contenedor-busqueda">
+                    <button class="boton-atras" onclick="window.history.back();">Atrás</button>
+                    </div>
                 </div>
 
 
             </div>
         </div>
     </div>
+    
 </body>
 
 </html>

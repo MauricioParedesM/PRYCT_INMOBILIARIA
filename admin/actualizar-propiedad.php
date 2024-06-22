@@ -250,6 +250,9 @@ if (isset($_POST['actualizar'])) {
                                 <option value="Alquiler" <?php if ($propiedad['estado'] == "Alquiler") {
                                                                 echo "selected";
                                                             } ?>>Alquiler</option>
+                                                            <option value="Anticretico" <?php if ($propiedad['estado'] == "Anticretico") {
+                                                                echo "selected";
+                                                            } ?>>Anticrético</option>
                             </select>
                         </div>
 
@@ -280,7 +283,14 @@ if (isset($_POST['actualizar'])) {
 
                         <div class="box">
                             <label for="baños">Baños</label>
-                            <input type="text" name="banios" value="<?php echo $propiedad['banios'] ?>" class="input-entrada-texto">
+                            <select name="dormitorios" class="input-entrada-texto">
+                            <option value="" disabled selected>Seleccionar</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            </select>
                         </div>
 
                         <div class="box">
@@ -293,7 +303,7 @@ if (isset($_POST['actualizar'])) {
 
                     <div class="fila">
                         <div class="box">
-                            <label for="garage">Garage</label>
+                            <label for="garage">Garaje</label>
                             <select name="garage" id="" class="input-entrada-texto">
                             <option value="" disabled selected>Seleccionar</option>
                                 <option value="No" <?php if ($propiedad['garage'] == "No") {
@@ -307,21 +317,49 @@ if (isset($_POST['actualizar'])) {
 
                         <div class="box">
                             <label for="dimensiones">Dimensiones</label>
-                            <input type="text" name="dimensiones" value="<?php echo $propiedad['dimensiones'] ?>" class="input-entrada-texto">
+                            <input type="text" name="dimensiones" id="dimensiones" class="input-entrada-texto" value=" m²" onfocus="addSuffix()" onblur="checkSuffix()" oninput="validateInput()">
                         </div>
+
+                        <script>
+                        function addSuffix() {
+                            var input = document.getElementById('dimensiones');
+                            if (input.value.trim() === "m²") {
+                                input.value = "";
+                            }
+                        }
+
+                        function checkSuffix() {
+                            var input = document.getElementById('dimensiones');
+                            if (input.value.trim() === "") {
+                                input.value = " m²";
+                            } else if (!input.value.includes("m²")) {
+                                input.value = input.value.trim() + " m²";
+                            }
+                        }
+
+                        function validateInput() {
+                            var input = document.getElementById('dimensiones');
+                            input.value = input.value.replace(/[^\d]/g, '') + ' m²';
+                        }
+                        </script>
 
                         <div class="box">
-                            <label for="precio">Precio (Alquiler o Venta)</label>
-                            <input type="text" name="precio" value="<?php echo $propiedad['precio'] ?>" class="input-entrada-texto">
+                            <label for="precio">Precio (Alquiler, Anticrético o Venta)</label>
+                            <input type="text" name="precio" class="input-entrada-texto" required>
                         </div>
                     </div>
-
+                    
                     <div class="fila">
-                        <div class="box">
-                            <label for="moneda">Moneda</label>
-                            <input type="text" name="moneda" class="input-entrada-texto" required value="<?php echo $propiedad['moneda'] ?>">
-                        </div>
+                    <div class="box">
+                        <label for="moneda">Tipo de moneda</label>
+                        <select id="moneda" name="moneda" class="input-entrada-texto" required>
+                            <option value="" disabled selected>Seleccionar</option>
+                            <option value="BOB">Bolivianos (BOB)</option>
+                            <option value="USD">Dólares (USD)</option>
+                        </select>
                     </div>
+                    </div>
+            
 
                     <h2>Galería de Fotos</h2>
                     <div class="">
@@ -336,7 +374,7 @@ if (isset($_POST['actualizar'])) {
                     </div>
 
                     <div>
-                        <p>Galería ( <label for="fotos" class="btn-cambiar-foto">Agregar mas Fotos</label>)</p>
+                        <p>Galería ( <label for="fotos" class="btn-cambiar-foto">Agregar más Fotos</label>)</p>
                         <input type="hidden" id="fotosAEliminar" name="fotosAEliminar">
                         <div id="contenedor-fotos-publicacion">
                             <?php

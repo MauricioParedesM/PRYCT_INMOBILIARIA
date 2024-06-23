@@ -60,6 +60,9 @@ $result = obtenerTodosLosPaises();
                             </tr>
                         <?php endwhile ?>
                     </table>
+                    <div class="contenedor-busqueda">
+                    <button class="boton-atras" onclick="window.history.back();">Atrás</button>
+                    </div>
                 </div>
 
             </div>

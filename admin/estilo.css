@@ -551,6 +551,7 @@ th {
 }
 
 
+
 /********************************************************************
 /*** ACTUALIZAR PROPIEDAD     *********************************/
 
@@ -694,7 +695,6 @@ th {
 th {
     padding: 10px;
 }
-
 .listados th {
     background-color: #c2c2c2;
 }
@@ -725,7 +725,7 @@ th {
 
         .contenedor-busqueda button {
             padding: 8px 16px;
-            background-color: #4CAF50;
+            background-color: #1c9016;
             color: white;
             border: none;
             border-radius: 4px;
@@ -733,7 +733,7 @@ th {
         }
 
         .contenedor-busqueda button:hover {
-            background-color: #45a049;
+            background-color: #376339;
         }
         .boton-atras {
             display: inline-block;
@@ -744,6 +744,7 @@ th {
             cursor: pointer;
             font-size: 16px;
             border-radius: 5px;
+            margin-top: 20px;
         }
 
         .boton-atras:hover {

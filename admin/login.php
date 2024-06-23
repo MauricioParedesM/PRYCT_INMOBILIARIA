@@ -31,15 +31,15 @@ if (isset($_POST['iniciar'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilo.css">
-    <title>SAWPI - Login</title>
+    <title>Login</title>
 </head>
 
 <body>
     <div id="contenedor-login">
         <div class="presentacion">
             <div class="titulo">
-                <h1>SAWPI</h1>
-                <p>Sistema de Administración Web Para Inmobiliaria</p>
+                <h1>BOLIVIA HOME</h1>
+                <p>Administración de la Inmobiliaria</p>
             </div>
             <div class="contenedor-formulario">
                 <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" class="form-login">

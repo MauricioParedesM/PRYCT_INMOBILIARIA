@@ -455,6 +455,10 @@ if (isset($_POST['actualizar'])) {
 
 
                     <input type="submit" value="Actualizar Datos" name="actualizar" class="btn-accion">
+                
+                    <div class="contenedor-busqueda">
+                    <button class="boton-atras" onclick="window.history.back();">Atrás</button>
+                    </div>
 
                 </form>
             </div>

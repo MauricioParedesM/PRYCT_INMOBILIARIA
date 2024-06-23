@@ -58,7 +58,7 @@ if (isset($_GET['buscar'])) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="estilo.css">
-    <title>SAWPI - Admin</title>
+    <title>Admin</title>
 </head>
 
 <body>
@@ -110,10 +110,12 @@ if (isset($_GET['buscar'])) {
                             </tr>
                         <?php endwhile ?>
                     </table>
-                </div>
-                <?php if (isset($_GET['buscar'])) : ?>
                     <div class="contenedor-busqueda">
                     <button class="boton-atras" onclick="window.history.back();">Atrás</button>
+                    </div>
+                </div>
+                <?php if (isset($_GET['buscar'])) : ?>
+                    
                     </div>
                 <?php endif; ?>
             </div>

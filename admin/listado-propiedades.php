@@ -63,7 +63,14 @@ if (isset($_GET['buscar'])) {
 
 <body>
     <?php include("header.php"); ?>
-
+    <style>
+        body{
+    background-image: url('fondo.jpg'); /* Reemplaza con la ruta de tu imagen */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+            </style>
     <div id="contenedor-admin">
         <?php include("contenedor-menu.php"); ?>
 

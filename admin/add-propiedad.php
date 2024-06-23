@@ -80,7 +80,8 @@ if (isset($_POST['agregar'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAPI - ADMIN</title>
+    <link rel="icon" type="logo/png" href="LOGO.png">
+    <title>BOLIVIA HOME</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="estilo.css">
@@ -111,7 +112,14 @@ if (isset($_POST['agregar'])) {
 
 <body>
     <?php include("header.php"); ?>
-
+    <style>
+        body{
+    background-image: url('fondo.jpg'); /* Reemplaza con la ruta de tu imagen */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+            </style>
     <div id="contenedor-admin">
         <?php include("contenedor-menu.php"); ?>
 

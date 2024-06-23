@@ -46,7 +46,7 @@ $totaCiudades = obtenerTotalRegistros('ciudades');
                         <a href="listado-propiedades.php">Ver Detalles</a>
                     </div>
                     <div class="caja-info tipo">
-                        <p>Total Tipo de Propiedades</p>
+                        <p>Tipo de Propiedades</p>
                         <hr>
                         <span class="dato"> <?php echo $totalTipos ?></span>
                         <hr>

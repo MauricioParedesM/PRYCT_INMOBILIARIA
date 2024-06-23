@@ -9,6 +9,7 @@
 </head>
 <body>
     <header>
+
         <div class="header-content">
             <div class="header-text">
                 <h1>Administración de Inmobiliaria</h1>
@@ -17,7 +18,11 @@
             <div class="header-logo">
                 <img src="LOGO.png" alt="Logo" class="logo-img">
             </div>
+            
+            
+
         </div>
+
     </header>
     <!-- Resto del contenido de la página -->
 </body>

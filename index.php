@@ -26,7 +26,7 @@ $result_tipos = obtenerTodosLosTipos();
     <div class="container">
         <?php include("header.php");?>
 
-        <h2>Casas, campos, departamentos. <br>
+        <h2>Casas, Departamentos, Terrenos. <br>
         Al mejor precio.</h2>
 
         <div class="box-buscar-propiedades pos-inferior">

@@ -91,28 +91,7 @@
             display: flex;
             justify-content: space-evenly;
         }
-        
-        .contenedor-header .info-contacto {
-            text-align: right;
-        }
-        .contenedor-header .info-contacto a{
-           text-decoration: none;
-        }
-        
-        .contenedor-header .info-contacto a {
-            color: #fff;
-            padding: 5px;
-            transition: .5s;
-        }
-        .contenedor-header .info-contacto a:hover {
-            color: #000;
-
-        }
-        
-        .contenedor-header .info-contacto span {
-            margin-left: 10px;
-        }
-        
+    
         .contenedor-header header {
             max-width: 1200px;
             margin: auto;
@@ -144,6 +123,23 @@
             font-weight: bold;
             margin: 0 10px;
         }
+        .header-login,
+.login-button {
+    display: inline-block;
+    padding: 10px;
+    color: #fff; /* Color del texto */
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.login-button i {
+    color: #fff; /* Color del ícono */
+}
+
+.login-button:hover i {
+    color: #000000; 
+}
+
         /* H O M E */
         
         .home {
@@ -160,6 +156,11 @@
             padding-top: 50px;
             color: #00ff00;
             font-size: 50px; 
+            text-shadow: 
+            -1px -1px 0 #000,  
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000; 
         }
 
         /* BARRA DE B U S Q U E D A*/

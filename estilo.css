@@ -10,7 +10,36 @@
             background-color: #eceff1;
         }
         /* H E A D E R */
+/* Contenedor del logo */
+.contenedor-header .logo {
+    display: flex;
+    align-items: center; /* Centra verticalmente el contenido */
+}
 
+.contenedor-header .logo-container {
+    display: flex;
+    align-items: center; /* Centra verticalmente el contenido */
+    text-align: center; /* Asegura que el texto esté centrado horizontalmente */
+}
+
+/* Imagen del logo */
+.contenedor-header .logo img {
+    width: 50px; /* Ajusta este valor según sea necesario */
+    height: 50px; /* Asegura que la imagen tenga una altura fija */
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+.contenedor-header .logo-text {
+    margin-left: 10px; /* Espacio entre la imagen y el texto */
+    font-size: 20px; /* Tamaño del texto */
+    color: #fff; /* Color del texto */
+    line-height: normal; /* Altura de línea */
+    display: flex; /* Necesario para centrar con flexbox */
+    align-items: center; /* Centra verticalmente */
+    font-family: 'Roboto', sans-serif; /* Fuente personalizada */
+    font-weight: 700; /* Peso de la fuente */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra de texto */
+}
         .container header .nav-responsive{
             display: none;
             font-size: 25px;
@@ -21,7 +50,7 @@
             display: block;
             position: absolute;
             top: 65px;
-            background: linear-gradient(to right, #1c9016, #32e73b);
+    background: linear-gradient(to right, #1c9016, #32e73b);
             left: 0;
         }
         .container header nav.responsive a{
@@ -181,7 +210,7 @@
             padding: 7px;
             font-size: 14px;
             font-weight: bold;
-            background: linear-gradient(to right, #1c9016, #32e73b);
+            background: linear-gradient(to right,#901c16, #e73b32);;
             color: #fff;
             border: none;
             cursor: pointer;

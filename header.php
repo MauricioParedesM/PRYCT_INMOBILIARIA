@@ -1,11 +1,8 @@
 <div class="contenedor-header">
     <header>
-        <div class="logo">
-            <a href="index.php">
-                <h1><i class="fa-solid fa-city"></i></h1>
-                <p>Inmobiliaria Web</p>
-            </a>
-
+        <div class="logo">               
+             <img src="admin/LOGO.png" alt="Logo" class="logo-img">
+            <a href="index.php" alt="Logo" class="logo-text">BOLIVIA HOME</a>
         </div>
 
         <div class="nav-responsive" onclick="mostrarMenuResponsive()">
